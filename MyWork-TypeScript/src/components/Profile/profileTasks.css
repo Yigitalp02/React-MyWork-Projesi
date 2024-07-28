@@ -1,0 +1,123 @@
+/* profileTasks.css */
+
+#profile-tasks {
+  background: linear-gradient(to bottom, #faf5fc, #e3e6f0);
+  padding: 4rem;
+  margin: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  box-sizing: border-box;
+}
+
+#profile-tasks .tasks-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 2rem; /* Space between rows */
+}
+
+#profile-tasks .tasks-table th, #profile-tasks .tasks-table td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle; /* Center vertically */
+}
+
+#profile-tasks .tasks-table th {
+  background-color: #A15FF4;
+  color: white;
+  border-right: 2px solid #ffffff;
+  text-align: center; /* Center text horizontally */
+}
+
+#profile-tasks .tasks-table th.comment-header {
+  border-radius: 0px 55px 55px 0px;
+}
+
+#profile-tasks .tasks-table th.key-header {
+  border-radius: 55px 0px 0px 55px;
+}
+
+#profile-tasks .tasks-table td {
+  background-color: #ffffff;
+  border-right: 2px solid #e3e6f0; /* Vertical line */
+  border-left: 2px solid #e3e6f0; /* Vertical line */
+
+  position: relative;
+  z-index: 1;
+}
+
+#profile-tasks .tasks-table td input,
+#profile-tasks .tasks-table td textarea {
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.key-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.key-cell{
+  width: 10%;
+  border-radius: 55px 0px 0px 55px;
+}
+
+.comment{
+  border-radius: 0px 55px 55px 0px;
+}
+
+.key-input-wrapper .key-input {
+  padding-left: 1.2rem; /* Make space for the # symbol */
+  text-align: center;
+  width: 100%; /* Ensure the input takes full width of the wrapper */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  font-family: Arial, Helvetica, sans-serif;
+font-size: 3rem;
+font-weight:bold ;
+
+}
+
+#profile-tasks .status {
+  cursor: pointer;
+  width: 15%; /* Adjust width as needed */
+  text-align: center; /* Center align the text */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:bold ;
+  
+}
+
+#profile-tasks .status.todo {
+  color: red;
+}
+
+#profile-tasks .status.done {
+  color: green;
+}
+
+#profile-tasks .status.in-progress {
+  color: blue;
+}
+
+#profile-tasks .tasks-table tr:last-child td {
+  border-bottom: none;
+}
+
+#profile-tasks .tasks-table tr td:last-child {
+  border-right: none;
+}
+
+/* Allowing the summary and comment sections to display multiple rows of text */
+#profile-tasks .tasks-table td.summary textarea,
+#profile-tasks .tasks-table td.comment textarea {
+  resize: none; /* Prevent manual resizing */
+  height: auto; /* Let it adjust based on content */
+  overflow-wrap: break-word;
+  white-space: pre-wrap; /* Preserve whitespace and wrap text */
+}

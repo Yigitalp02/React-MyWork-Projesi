@@ -1,0 +1,78 @@
+/* profileInfo.css */
+
+#info-section {
+    background: linear-gradient(to bottom, #F5DAFF
+    , #e3e6f0);
+    padding: 10rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    box-sizing: border-box;
+    margin-left: 18rem;
+    
+  }
+
+  #info-section .picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Space below the picture container */
+  }
+  
+  #info-section .profile-picture {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder background color */
+    margin-bottom: 10px; /* Space below the picture */
+  }
+  
+  #info-section .change-picture-button {
+    background-color: #F5DAFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    cursor: pointer;
+  }
+
+  #info-section .change-picture-button:hover {
+    color: #000000;
+    background-color: #a25ff450;
+    border: 2px solid #a25ff450;
+  }
+
+  #info-section .Header {
+    text-align: center;
+  }
+  
+  #info-section .info-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #info-section .form-group {
+    margin-bottom: 15px;
+  }
+  
+  #info-section .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  #info-section .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #info-section .btn-primary {
+    background-color: #A15FF4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

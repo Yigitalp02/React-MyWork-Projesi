@@ -1,0 +1,99 @@
+/* header.css */
+
+#header {
+  background: linear-gradient(to right, #faf5fc, #fce3e6);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#header .header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+#header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  flex-grow: 1;
+}
+
+#header .nav-link {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 35px;
+}
+
+#header .nav-link.active,
+#header .nav-link:hover {
+  color: #000000;
+  background-color: #9D9DFF;
+  border: 2px solid #9D9DFF;
+}
+
+#header .menu-button {
+  display: none;
+}
+
+#header .exit-button {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 35px;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#header .exit-button.active,
+#header .exit-button:hover {
+  color: #000000;
+  background-color: #9D9DFF;
+  border: 2px solid #9D9DFF;
+}
+
+#header .exit-icon {
+  width: 24px;
+  height: 24px;
+}
+
+#header #mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #header .nav-link {
+    display: none;
+  }
+  #header .menu-button {
+    display: block;
+    background-color: #A15FF4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  #header #mobileMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #header #mobileMenu .nav-link {
+    margin: 10px 0;
+  }
+}

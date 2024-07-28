@@ -1,0 +1,88 @@
+/* sidebar.css */
+
+#sidebar {
+  background: #e3e6f0;
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 125%;
+  z-index: 1000;
+  box-sizing: border-box;
+  justify-content: space-between; /* Ensures space between top content and bottom icons */
+}
+
+#sidebar .sidebar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#sidebar .menu-button {
+  background-color: #A15FF4;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 35px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+}
+
+#sidebar .menu-button .sidebar-icon {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+#sidebar .sidebar-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#sidebar .sidebar-link {
+  color: #333;
+  text-decoration: none;
+  margin: 13px 0;
+  font-size: 16px;
+  text-align: left; /* Align text to the left */
+  padding: 20px 23px 20px 13px; /* Adjust padding to move text left */
+  border-radius: 35px 0px 0px 35px;
+  position: relative; /* Relative positioning to enable negative margin */
+  right: -20px; /* Move the button to the right */
+  width: calc(100% + 20px); /* Adjust width to ensure the button exceeds the sidebar */
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+}
+
+#sidebar .sidebar-link .sidebar-icon {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+#sidebar .sidebar-link.active {
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+#sidebar .sidebar-link:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+#sidebar .sidebar-social-media {
+  display: flex;
+  justify-content: center; /* Align icons horizontally */
+  gap: 1rem; /* Space between the icons */
+  margin-top: auto; /* Push icons to the bottom */
+}
+
+#sidebar .social-icon {
+  width: 24px;
+  height: 24px;
+}
+

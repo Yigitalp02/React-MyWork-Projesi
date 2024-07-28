@@ -1,0 +1,273 @@
+/* index.css */
+
+/* Styles for the authentication pages */
+.auth-page {
+  font-family: Arial, sans-serif;
+  background-color: #d4b7f3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.auth-page .header {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 2em;
+  font-family: Mohave;
+}
+
+.auth-page .app {
+  text-align: center;
+}
+
+.auth-page .left-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+}
+
+.auth-page .left-images img {
+  display: block;
+}
+
+.auth-page .background1 {
+  position: relative;
+  width: 160px;
+  top: 50px;
+  left: 0;
+  z-index: 1;
+}
+
+.auth-page .background2 {
+  position: absolute;
+  width: 110px;
+  top: 0px;
+  left: 0;
+  z-index: 2;
+}
+
+.auth-page .main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.auth-page .registration-form,
+.auth-page .login-form {
+  background-color: #212936;
+  border-radius: 30px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-page .registration-form h1,
+.auth-page .login-form h2 {
+  color: #B1E457;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 11.79px;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.auth-page .registration-form h2 {
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 20px; 
+  font-weight: 400; 
+  line-height: 36.22px; 
+  text-align: center;
+  color: #B1E457;
+  margin-bottom: 0rem;
+  margin-top: 0px;
+}
+
+.auth-page .login-form p {
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 20px; 
+  font-weight: 400; 
+  line-height: 36.22px; 
+  text-align: center;
+  color: #6C727F;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.auth-page .input-field {
+  margin: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+.auth-page .input-field input {
+  width: 85%;
+  padding: 10px 0px 10px 40px;
+  margin: 5px auto;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #6C727F;
+  color: white;
+}
+
+.auth-page .input-field input::placeholder {
+  color: #a1a1a1;
+  transform: translateY(1px);
+}
+
+.auth-page .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.auth-page .error-message {
+  background-color: #AE2D5D;
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.auth-page .registration-error {
+  /* Custom styles for registration errors */
+}
+
+.auth-page .login-error {
+  /* Custom styles for login errors */
+}
+
+.auth-page .error-icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.auth-page .error-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  text-size-adjust: 5;
+}
+
+.auth-page .error-title {
+  font-weight: bold;
+  margin: 0;
+  text-align: left; /* Ensure title is left-aligned */
+}
+
+.auth-page .error-detail {
+  margin: 0;
+  line-height: 1.2;
+  text-align: left; /* Ensure detail is left-aligned */
+}
+
+.auth-page button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 95%;
+  margin-top: 10px;
+}
+
+.auth-page .registration-button {
+  background-color: #b8e68b;
+  color: #2d2d44;
+}
+
+.auth-page .registration-button.not-filled {
+  background-color: #A15FF433;
+  color: #6C727F;
+}
+
+.auth-page .registration-button.filled {
+  background-color: #B1E457;
+  color: #2d2d44;
+}
+
+.auth-page .registration-button:hover {
+  background-color: #a4d776;
+}
+
+.auth-page .login-button {
+  background-color: #B1E457; /* Default background color */
+  color: #212936; /* Default text color */
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color changes */
+}
+
+.auth-page .login-button.not-filled {
+  background-color: #A15FF433; /* Background color when inputs are not filled */
+  color: #6C727F; /* Text color when inputs are not filled */
+}
+
+.auth-page .login-button.filled {
+  background-color: #B1E457; /* Background color when inputs are filled */
+  color: #212936; /* Text color when inputs are filled */
+}
+
+.auth-page .login-button:hover {
+  background-color: #a4d776; /* Background color on hover */
+  color: #212936; /* Text color on hover */
+}
+
+.auth-page .login-page .footer,
+.auth-page .registration-page .footer {
+  margin-top: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 0.5;
+}
+
+.auth-page a {
+  color: #58820E;
+  text-decoration: none;
+}
+
+.auth-page a:hover {
+  text-decoration: underline;
+}
+
+.auth-page .user-info-page {
+  background-color: #2d2d44;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.auth-page .user-info-page h2 {
+  color: #b8e68b;
+  margin-bottom: 20px;
+}
+
+.auth-page .user-info-page p {
+  margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+  .auth-page .left-images {
+    display: none;
+  }
+}

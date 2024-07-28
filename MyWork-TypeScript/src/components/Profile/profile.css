@@ -1,0 +1,25 @@
+/* profile.css */
+
+#profile-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #profile-page .profile-container {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+  }
+  
+  #profile-page .profile-main {
+    flex-grow: 1;
+    margin-left: 220px; /* Adjust this based on the sidebar width */
+    padding: 20px;
+    background: white; /* Add background to ensure visibility */
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  

@@ -1,0 +1,63 @@
+/* aboutus.css */
+
+#about-page {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #about-page .main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Align items to the left */
+    background: #F2F2FD;
+    min-height: 100vh;
+    width: 100%; /* Make sure it takes the full width */
+    padding: 0px; /* Adjust padding to reduce space */
+    box-sizing: border-box;
+
+  }
+  
+  #about-page .content-wrapper {
+    background: linear-gradient(to bottom, #ee80803a, #6884e133);
+    padding: 3% 10% 10% 10%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Adjust max-width for a larger content area */
+    width: 90%;
+    height: 10%;
+    margin: 3% 10% 10% 10%; /* Center the content and remove extra margin */
+    gap: 40px;
+    opacity: 0px;
+
+  }
+  
+  #about-page .about-header {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  #about-page .about-paragraph {
+    color: #000000;
+    margin: 0;
+    font-family: Myanmar Khyay;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 33.68px;
+    text-align: left;
+    justify-content: center;
+
+  }
+
+  @media (max-width: 768px) {
+    #about-page .content-wrapper {
+        margin: 10% 10% 10% 10%;
+        padding: 10% 10% 10% 10%;
+    }
+   
+  }
+  

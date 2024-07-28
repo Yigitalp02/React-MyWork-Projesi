@@ -1,0 +1,48 @@
+/* home.css */
+
+#home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #home-page .home-container {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+  }
+  
+  #home-page .home-main {
+    flex-grow: 1;
+    margin-left: 220px; /* Adjust this based on the sidebar width */
+    padding: 20px;
+    background: white; /* Add background to ensure visibility */
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  #home-page .home-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  #home-page .status-section {
+    flex: 2;
+    margin-right: 20px;
+    padding: 20px;
+    background: linear-gradient(to bottom, #faf5fc, #e3e6f0);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #home-page .persons-section {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #faf5fc, #e3e6f0);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
