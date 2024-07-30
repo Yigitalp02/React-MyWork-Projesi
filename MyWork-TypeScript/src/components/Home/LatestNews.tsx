@@ -6,7 +6,7 @@ import './latestNews.css';
 const LatestNews: React.FC = () => {
   const [news, setNews] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const fallbackImage = 'https://via.placeholder.com/150'; // Fallback image URL
+  const fallbackImage = 'https://via.placeholder.com/150'; // Placeholder esimler
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -16,7 +16,7 @@ const LatestNews: React.FC = () => {
             'api-key': 'HvwFcwgE3AP69sHN99OfmtAvLujuFMPm',
           },
         });
-        console.log(response.data.results); // Log the API response
+        console.log(response.data.results); 
         setNews(response.data.results);
       } catch (err) {
         setError('Failed to fetch news');
@@ -58,7 +58,7 @@ const LatestNews: React.FC = () => {
       <div className="latest-news-list">
         {news.slice(1, 4).map((article, index) => {
           const imageUrl = ensureHttps(article.multimedia && article.multimedia[0] ? article.multimedia[0].url : '');
-          console.log(`Article ${index + 1} Image:`, imageUrl); // Log image URLs
+          console.log(`Article ${index + 1} Image:`, imageUrl); 
           return (
             <div key={index} className="latest-news-item">
               <img

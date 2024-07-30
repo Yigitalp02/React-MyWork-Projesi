@@ -1,64 +1,52 @@
-/* latestNews.css */
+/* status.css */
 
 #status-section {
-    width: 100%;
-  }
-  
-  #status-section h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  #status-section .hot-topic {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  #status-section .hot-topic-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  #status-section .hot-topic-details {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: white;
-  }
-  
-  #status-section .hot-topic-details h3 {
-    font-size: 20px;
-    margin: 0;
-  }
-  
-  #status-section .latest-news-list {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  #status-section .latest-news-item {
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  #status-section .latest-news-item:last-child {
-    margin-right: 0;
-  }
-  
-  #status-section .latest-news-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 5px;
-  }
-  
-  #status-section p {
-    font-size: 14px;
-    color: #333;
-    margin: 0;
-  }
-  
+  width: 100%;
+}
+
+#status-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#status-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px; /* Add space between the table and the h2 header */
+}
+
+#status-section th, #status-section td {
+  padding: 10px;
+  text-align: left;
+}
+
+#status-section th.task-title,
+#status-section td.task-title {
+  width: 30%;
+  text-align: left;
+}
+
+#status-section th.task-desc,
+#status-section td.task-desc {
+  width: 40%;
+  text-align: center;
+}
+
+#status-section th.task-status,
+#status-section td.task-status {
+  width: 30%;
+  text-align: right;
+}
+
+#status-section th {
+  padding-bottom: 20px; /* Add space below headers */
+}
+
+#status-section td {
+  padding-top: 20px; /* Add space above content */
+}
+
+#status-section .status-desc {
+  color: rgb(0, 255, 38);
+}

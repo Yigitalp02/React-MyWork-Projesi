@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 125%;
+  height: 140%;
   z-index: 1000;
   box-sizing: border-box;
   justify-content: space-between; /* Ensures space between top content and bottom icons */

@@ -1,14 +1,34 @@
 // src/components/ProfileInfo.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import './profileInfo.css';
 
 const ProfileInfo: React.FC = () => {
+  const [profilePicture, setProfilePicture] = useState<string | ArrayBuffer | null>("");
+
+  const handlePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setProfilePicture(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div id="info-section" className="info-section">
       <div className="info-container">
         <div className="picture-container">
-          <img src="" alt="Profile" className="profile-picture" />
-          <button type="button" className="change-picture-button">Change Picture</button>
+          <img src={profilePicture as string} alt="Profile" className="profile-picture" />
+          <label htmlFor="change-picture" className="change-picture-button">Change Picture</label>
+          <input
+            type="file"
+            id="change-picture"
+            accept="image/*"
+            onChange={handlePictureChange}
+            style={{ display: 'none' }}
+          />
         </div>
         <form className="info-form">
           <div className="form-group">

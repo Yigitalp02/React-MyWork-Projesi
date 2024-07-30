@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Routes, Route } from 'react-router-dom';
 import InputField from '../Registration/InputField';
+import RegistrationForm from '../Registration/RegistrationForm';
 import ErrorMessage from '../Registration/ErrorMessage';
 
 interface FormData {
@@ -71,7 +72,10 @@ const LoginForm: React.FC = () => {
         </form>
       </div>
       <div className="footer mt-3 text-white">
-        <p>Don't have an account? <a href="/register" className="text-primary">Sign up</a></p>
+        <Routes>  
+          <Route path="() " element={<RegistrationForm />} />
+        </Routes>
+        <p>Don't have an account? <a href="/ ">Sign up</a></p>
         <p><a href="#" className="text-primary">Forgot password?</a></p>
       </div>
     </div>

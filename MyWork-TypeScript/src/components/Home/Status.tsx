@@ -9,16 +9,16 @@ const Status: React.FC = () => {
       <table>
         <thead>
           <tr>
-            <th>Task Title</th>
-            <th>Task Description</th>
-            <th>Status</th>
+            <th className="task-title">Task Title</th>
+            <th className="task-desc">Task Description</th>
+            <th className="task-status">Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Home Page Redesign</td>
-            <td>Lorem ipsum dolor sit amet</td>
-            <td>In Progress</td>
+            <td className="task-title">Home Page Redesign</td>
+            <td className="task-desc">Lorem ipsum dolor sit amet</td>
+            <td className="task-status status-desc">In Progress</td>
           </tr>
         </tbody>
       </table>

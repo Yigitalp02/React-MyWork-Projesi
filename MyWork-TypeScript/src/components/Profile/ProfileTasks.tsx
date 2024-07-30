@@ -50,10 +50,10 @@ const ProfileTasks: React.FC = () => {
       <table className="tasks-table">
         <thead>
           <tr>
-            <th className="key-header">Key</th> {/* Added class for comment header */}
+            <th className="key-header">Key</th> {}
             <th>Summary</th>
             <th>Status</th>
-            <th className="comment-header">Comment</th> {/* Added class for comment header */}
+            <th className="comment-header">Comment</th> {}
           </tr>
         </thead>
         <tbody>
