@@ -1,4 +1,5 @@
 import React from 'react';
+import './InputField.css';
 import userIcon from '../icons/user.png';
 import emailIcon from '../icons/email.png';
 import passwordIcon from '../icons/password.png';
@@ -22,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({ type, name, value, onChange, pl
   const iconSrc = iconMap[iconName];
 
   return (
-    <div className="input-field">
+    <div id="input-field" className="input-field">
       {iconSrc && <img src={iconSrc} alt={`${iconName} icon`} className="input-icon" />}
       <input
         type={type}

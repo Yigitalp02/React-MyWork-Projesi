@@ -1,6 +1,6 @@
 // src/components/Sidebar.tsx
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './sidebar.css';
 import menuIcon from '../icons/menu.png';
 import infoIcon from '../icons/info.png';
@@ -10,12 +10,15 @@ import instagramIcon from '../icons/instagram.png';
 import twitterIcon from '../icons/twitter.png';
 
 const Sidebar: React.FC = () => {
-  const location = useLocation();
+  const location = useLocation(); // Mevcut URL konumunu almak için kullanılır
+  const navigate = useNavigate(); // Yönlendirme işlemleri için kullanılır
+
+  // Belirtilen path aktif mi kontrol eder
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <div id="sidebar" className="sidebar">
-      <div className="sidebar-title">MyWork</div>
+      <button className="sidebar-title" onClick={() => navigate('/home')}>MyWork</button>
       <button className="menu-button">
         <img src={menuIcon} alt="Menu" className="sidebar-icon" />
         Menu

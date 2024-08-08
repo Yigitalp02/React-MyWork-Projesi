@@ -1,7 +1,7 @@
 /* header.css */
 
 #header {
-  background: linear-gradient(to right, #faf5fc, #fce3e6);
+  background: linear-gradient(to left, #f4daff99, #ffffff00);
   width: 100%;
   padding: 20px;
   display: flex;
@@ -18,22 +18,25 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 #header .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align items to the right */
-  flex-grow: 1;
 }
 
 #header .nav-link {
   color: #333;
   text-decoration: none;
+  font-weight: bold;
   margin: 0 10px;
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 35px;
+  transition: background-color 0.3s, border 0.3s; /* Add transition for smooth effect */
 }
 
 #header .nav-link.active,
@@ -74,6 +77,24 @@
 
 #header #mobileMenu {
   display: none;
+}
+
+#header .user-info {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+#header .user-profile-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#header .user-name {
+  font-size: 16px;
+  color: #333;
 }
 
 @media (max-width: 768px) {

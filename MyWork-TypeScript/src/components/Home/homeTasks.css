@@ -29,8 +29,10 @@
     text-align: center; /* Center text horizontally */
   }
   
-  #home-tasks .tasks-table th.assignee-header {
+  #home-tasks .tasks-table th.action-header {
     border-radius: 0px 55px 55px 0px;
+    width: 10%; /* Adjust this value to make the Actions column narrower */
+
   }
   
   #home-tasks .tasks-table th.key-header {
@@ -68,9 +70,6 @@
     border-radius: 55px 0px 0px 55px;
   }
   
-  .assignee {
-    border-radius: 0px 55px 55px 0px;
-  }
   
   .key-input-wrapper .key-input {
     padding-left: 1.2rem; /* Make space for the # symbol */
@@ -119,3 +118,35 @@
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
   }
   
+  /* Styles for the delete button */
+#home-tasks .actions {
+  text-align: center;
+  border-radius: 0px 55px 55px 0px;
+}
+
+#home-tasks .delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#home-tasks .delete-button:hover {
+  background-color: darkred;
+}
+
+#home-tasks .add-task-button {
+  background-color: #a15ff4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#home-tasks .add-task-button:hover {
+  background-color: #8e49cc;
+}

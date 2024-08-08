@@ -29,7 +29,7 @@
   text-align: center; /* Center text horizontally */
 }
 
-#profile-tasks .tasks-table th.comment-header {
+#profile-tasks .tasks-table th.action-header {
   border-radius: 0px 55px 55px 0px;
 }
 
@@ -41,7 +41,6 @@
   background-color: #ffffff;
   border-right: 2px solid #e3e6f0; /* Vertical line */
   border-left: 2px solid #e3e6f0; /* Vertical line */
-
   position: relative;
   z-index: 1;
 }
@@ -61,27 +60,49 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-.key-cell{
+.key-cell {
   width: 10%;
   border-radius: 55px 0px 0px 55px;
 }
 
-.comment{
-  border-radius: 0px 55px 55px 0px;
+.key-hash {
+  position: absolute;
+  left: 1.5rem;
+  font-weight: bold;
 }
 
 .key-input-wrapper .key-input {
   padding-left: 1.2rem; /* Make space for the # symbol */
   text-align: center;
-  width: 100%; /* Ensure the input takes full width of the wrapper */
+  width: calc(100% - 2rem); /* Ensure the input takes full width of the wrapper, minus space for the # symbol */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
   font-family: Arial, Helvetica, sans-serif;
-font-size: 3rem;
-font-weight:bold ;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
+#profile-tasks .key-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem; /* Adjust spacing as needed */
+}
+
+#profile-tasks .key-buttons button {
+  background-color: #e3e6f0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 2px;
+  width: 20px;
+  margin: 1px 0;
+}
+
+#profile-tasks .key-buttons button:hover {
+  background-color: #d1d5db;
 }
 
 #profile-tasks .status {
@@ -89,8 +110,7 @@ font-weight:bold ;
   width: 15%; /* Adjust width as needed */
   text-align: center; /* Center align the text */
   font-family: Arial, Helvetica, sans-serif;
-  font-weight:bold ;
-  
+  font-weight: bold;
 }
 
 #profile-tasks .status.todo {
@@ -120,4 +140,37 @@ font-weight:bold ;
   height: auto; /* Let it adjust based on content */
   overflow-wrap: break-word;
   white-space: pre-wrap; /* Preserve whitespace and wrap text */
+}
+
+/* Styles for the delete button */
+#profile-tasks .actions {
+  text-align: center;
+  border-radius: 0px 55px 55px 0px;
+}
+
+#profile-tasks .delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#profile-tasks .delete-button:hover {
+  background-color: darkred;
+}
+
+#profile-tasks .add-task-button {
+  background-color: #A15FF4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#profile-tasks .add-task-button:hover {
+  background-color: #8E49CC;
 }

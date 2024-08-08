@@ -1,49 +1,35 @@
 // src/components/HomeTasks.tsx
 import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import './homeTasks.css';
 
 interface Task {
   key: string;
+  displayKey: number;
   summary: string;
   status: string;
   assignee: string;
 }
 
-const initialTasks: Task[] = [
-  { key: '1', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'TO DO', assignee: 'Fatmanur' },
-  { key: '2', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'DONE', assignee: 'Berkin' },
-  { key: '3', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'TO DO', assignee: 'Damla' },
-  { key: '4', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'TO DO', assignee: 'Selin' },
-  { key: '5', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'IN PROGRESS', assignee: 'Kaan' },
-  { key: '6', summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', status: 'IN PROGRESS', assignee: 'Mislina' },
-];
-
 const HomeTasks: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
-
-  const handleStatusClick = (index: number) => {
-    const newTasks = [...tasks];
-    const currentStatus = newTasks[index].status;
-    let newStatus = 'TO DO';
-    if (currentStatus === 'TO DO') {
-      newStatus = 'IN PROGRESS';
-    } else if (currentStatus === 'IN PROGRESS') {
-      newStatus = 'DONE';
-    }
-    newTasks[index].status = newStatus;
-    setTasks(newTasks);
-  };
-
-  const handleInputChange = (index: number, field: keyof Task, value: string) => {
-    const newTasks = [...tasks];
-    newTasks[index][field] = field === 'key' ? value.replace(/[^0-9]/g, '') : value;
-    setTasks(newTasks);
-  };
+  const [tasks, setTasks] = useState<Task[]>([]); // tasks durum değişkenini tanımlar
 
   useEffect(() => {
-    const sortedTasks = [...tasks].sort((a, b) => parseInt(a.key) - parseInt(b.key));
-    setTasks(sortedTasks);
-  }, [tasks]);
+    const db = getDatabase(); // Firebase veritabanını alır
+    const tasksRef = ref(db, 'tasks'); // tasks referansını alır
+    onValue(tasksRef, (snapshot) => {
+      const data = snapshot.val(); // Veritabanındaki verileri alır
+      if (data) {
+        const loadedTasks = Object.keys(data).map((key) => ({
+          key,
+          displayKey: data[key].displayKey || tasks.length + 1,
+          ...data[key],
+        }));
+        loadedTasks.sort((a, b) => a.displayKey - b.displayKey); // Taskleri displayKey'e göre sıralar
+        setTasks(loadedTasks); // tasks durumunu günceller
+      }
+    });
+  }, []); // Bileşen yüklendiğinde çalışır
 
   return (
     <div id="home-tasks" className="home-tasks">
@@ -57,32 +43,22 @@ const HomeTasks: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task, index) => (
-            <tr key={index}>
+          {tasks.map((task) => (
+            <tr key={task.key}>
               <td className="key-cell">
                 <div className="key-input-wrapper">
-                  <input
-                    type="text"
-                    value={`#${task.key}`}
-                    onChange={(e) => handleInputChange(index, 'key', e.target.value)}
-                    className="key-input"
-                  />
+                  <span className="key-hash">#</span> {/* Key'in önüne # ekler */}
+                  <span>{task.displayKey}</span> {/* displayKey'i gösterir */}
                 </div>
               </td>
               <td className="summary">
-                <textarea
-                  value={task.summary}
-                  onChange={(e) => handleInputChange(index, 'summary', e.target.value)}
-                />
+                {task.summary} {/* Taskin özetini gösterir */}
               </td>
-              <td className={`status ${task.status.toLowerCase().replace(' ', '-')}`} onClick={() => handleStatusClick(index)}>
-                {task.status}
+              <td className={`status ${task.status.toLowerCase().replace(' ', '-')}`}>
+                {task.status} {/* Taskin durumunu gösterir */}
               </td>
               <td className="assignee">
-                <textarea
-                  value={task.assignee}
-                  onChange={(e) => handleInputChange(index, 'assignee', e.target.value)}
-                />
+                {task.assignee} {/* Taski atanan kişiyi gösterir */}
               </td>
             </tr>
           ))}

@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 150%;
+  height: 180%;
   z-index: 1000;
   box-sizing: border-box;
   justify-content: space-between; /* Ensures space between top content and bottom icons */
@@ -20,6 +20,10 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
   }
   
   #sidebar-home .menu-button {

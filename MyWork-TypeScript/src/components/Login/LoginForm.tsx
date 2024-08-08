@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Routes, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, get } from 'firebase/database';
+import { auth } from '../firebaseConfig';
 import InputField from '../Registration/InputField';
-import RegistrationForm from '../Registration/RegistrationForm';
 import ErrorMessage from '../Registration/ErrorMessage';
+import './LoginForm.css';
 
+// Form verilerini tutacak arayüz
 interface FormData {
   email: string;
   password: string;
@@ -15,10 +19,11 @@ const LoginForm: React.FC = () => {
     password: '',
   });
 
-  const [isFilled, setIsFilled] = useState<boolean>(false);
-  const [error, setError] = useState<string>('');
-  const navigate = useNavigate();
+  const [isFilled, setIsFilled] = useState<boolean>(false); // Formun doldurulup doldurulmadığını kontrol eder
+  const [error, setError] = useState<string>(''); // Hata mesajını tutar
+  const navigate = useNavigate(); // Sayfa yönlendirmesi için kullanılır
 
+  // Input alanlarındaki değişiklikleri takip eder
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -26,26 +31,46 @@ const LoginForm: React.FC = () => {
     });
   };
 
+  // Form verilerindeki değişiklikleri izler ve formun doldurulup doldurulmadığını kontrol eder
   useEffect(() => {
     const isAnyFieldFilled = Object.values(formData).some(value => value !== '');
     setIsFilled(isAnyFieldFilled);
   }, [formData]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (formData.email !== 'correct@example.com' || formData.password !== 'correctpassword') {
-      setError('Incorrect username or password!');
-    } else {
-      navigate('/user-info', { state: formData });
+  // Form gönderildiğinde çalışacak fonksiyon
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Formun varsayılan gönderimini engeller
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = userCredential.user;
+      
+      // Kullanıcının admin olup olmadığını kontrol eder
+      const db = getDatabase();
+      const adminRef = ref(db, `admins/${user.uid}`);
+      const adminSnapshot = await get(adminRef);
+
+      if (adminSnapshot.exists()) {
+        navigate('/home');
+      } else {
+        navigate('/home');
+      }
+    } catch (error: any) {
+      setError('Incorrect username or password!'); // Hata durumunda mesaj gösterir
     }
   };
 
+  // Şifre sıfırlama sayfasına yönlendirme fonksiyonu
+  const handlePasswordReset = () => {
+    navigate('/reset-password');
+  };
+
   return (
-    <div className="login-page">
-      <div className="login-form bg-dark text-white p-4 rounded">
+    <div id="login-page" className="login-page">
+      <div className="header">MyWork</div>
+      <div id="login-form" className="login-form bg-dark text-white p-4 rounded">
         <h2>Welcome back!</h2>
         <p>Sign in to your account</p>
-        {error && <ErrorMessage className="login-error" message={error} />}
+        {error && <ErrorMessage className="login-error" message={error} />} {/* Hata mesajı */}
         <form onSubmit={handleSubmit}>
           <InputField
             type="email"
@@ -72,11 +97,8 @@ const LoginForm: React.FC = () => {
         </form>
       </div>
       <div className="footer mt-3 text-white">
-        <Routes>  
-          <Route path="() " element={<RegistrationForm />} />
-        </Routes>
-        <p>Don't have an account? <a href="/ ">Sign up</a></p>
-        <p><a href="#" className="text-primary">Forgot password?</a></p>
+        <p>Don't have an account? <a href="/register">Sign up</a></p> {/* Kayıt ol linki */}
+        <p><a href="" className="text-primary" onClick={handlePasswordReset}>Forgot password?</a></p> {/* Şifremi unuttum linki */}
       </div>
     </div>
   );

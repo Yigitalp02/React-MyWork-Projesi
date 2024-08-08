@@ -1,9 +1,11 @@
+// src/App.tsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import './index.css';
+import { UserProvider } from './components/UserContext';
 import RegistrationForm from './components/Registration/RegistrationForm';
-import UserInfoPage from './components/Userinfo/UserInfoPage';
 import LoginForm from './components/Login/LoginForm';
+import ResetPasswordForm from './components/Login/ResetPasswordForm';
 import Home from './components/Home/Home';
 import Contact from './components/Contact/Contact';
 import AboutUs from './components/Aboutus/AboutUs';
@@ -11,17 +13,22 @@ import Profile from './components/Profile/Profile';
 import background2 from './icons/background1.png';
 import background1 from './icons/background2.png';
 
+// Ana App bileşeni
 const App: React.FC = () => (
   <Router>
-    <AppContent />
+    {/* Kullanıcı bağlamını sağlayan UserProvider bileşeni */}
+    <UserProvider>
+      <AppContent />
+    </UserProvider>
   </Router>
 );
 
+// Ana içerik bileşeni
 const AppContent: React.FC = () => {
-  const location = useLocation();
-  const authPages = ['/', '/user-info', '/login'];
+  const location = useLocation(); // Geçerli URL konumunu almak için kullanılır
+  const authPages = ['/register', '/login', '/reset-password']; // Kimlik doğrulama sayfalarının yolları
 
-  const isAuthPage = authPages.includes(location.pathname);
+  const isAuthPage = authPages.includes(location.pathname); // Geçerli sayfanın bir kimlik doğrulama sayfası olup olmadığını kontrol eder
 
   return (
     <div className={`app ${isAuthPage ? 'auth-page' : ''}`}>
@@ -32,21 +39,17 @@ const AppContent: React.FC = () => {
         </div>
       )}
       <div className="main-content">
-        {isAuthPage && <div className="header">MyWork</div>}
         <Routes>
-          <Route path="/" element={<RegistrationForm />} />
-          <Route path="/user-info" element={<UserInfoPage />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/profile/*" element={<Profile />} />
-          <Route path="/home/*" element={<Home />} />
+          {/* Yönlendirme rotaları */}
+          <Route path="/" element={<Navigate to="/register" />} /> {/* Ana sayfaya gidildiğinde kayıt sayfasına yönlendirir */}
+          <Route path="/register" element={<RegistrationForm />} /> {/* Kayıt formu */}
+          <Route path="/login" element={<LoginForm />} /> {/* Giriş formu */}
+          <Route path="/reset-password" element={<ResetPasswordForm />} /> {/* Şifre sıfırlama formu */}
+          <Route path="/contact" element={<Contact />} /> {/* İletişim sayfası */}
+          <Route path="/about" element={<AboutUs />} /> {/* Hakkımızda sayfası */}
+          <Route path="/profile/*" element={<Profile />} /> {/* Profil sayfası */}
+          <Route path="/home/*" element={<Home />} /> {/* Ana sayfa */}
         </Routes>
-        {location.pathname === '/' && (
-          <div className="footer">
-            <p>Already have an account? <a href="/login">Login</a> <a href="/contact">Contact</a><a href="/about">AboutUs</a><a href="/profile">Profile</a><a href="/home">Home</a></p>
-          </div>
-        )}
       </div>
     </div>
   );
